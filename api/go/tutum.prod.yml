@@ -1,0 +1,9 @@
+server:
+  image: 'tutum.co/@tutumuser@/cag-demo-api:@project.version@'
+  deployment_strategy: high_availability
+  environment:
+    - SE_CAGDEMO_SERVER_ENVIRONMENT=prod
+  restart: always
+  target_num_containers: 2
+  tags:
+    - prod
