@@ -45,14 +45,14 @@
             <resource>
                 <directory>src/main/resources</directory>
                 <includes>
-                    <include>version.txt</include>
+                    <include>BuildInfo.properties</include>
                 </includes>
                 <filtering>true</filtering>
             </resource>
             <resource>
                 <directory>src/main/resources</directory>
                 <excludes>
-                    <exclude>version.txt</exclude>
+                    <exclude>BuildInfo.properties</exclude>
                 </excludes>
             </resource>
         </resources>
