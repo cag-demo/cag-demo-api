@@ -20,10 +20,10 @@ fi
 # http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in
 SCRIPT_DIR=$(dirname $(readlink -f $0))
 VERSION=`grep AppVersion ${SCRIPT_DIR}/../BuildInfo.properties | awk -F'=' '{print $2}'`
-# Kill old instans
-docker rm -f codenight-${INSTANCE} || /bin/true
+# Kill old instance
+docker rm -f cag-demo-api-${INSTANCE} || /bin/true
 # Start a new one
-docker run -d -e "DOODLE_ENV=${DOODLE_ENV}" --name codenight-${INSTANCE} -p ${PORT_PREFIX}${EPORT}:${PORT} -p ${PORT_PREFIX}${M_PORT}:${M_PORT} doodleshop:$VERSION
+docker run -d -e "DOODLE_ENV=${DOODLE_ENV}" --name cag-demo-api-${INSTANCE} -p ${PORT_PREFIX}${EPORT}:${PORT} -p ${PORT_PREFIX}${M_PORT}:${M_PORT} cag-demo-api:$VERSION
 # Sleep some time before checking that it's working
 timeout 3m bash runsmoketestuntilkilled.sh
 
