@@ -3,6 +3,8 @@
  */
 package se.caglabs.codenight;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,9 +15,18 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 @RestController
-public class SystemController {
+public class ApplicationController {
+    private Logger logger = LoggerFactory.getLogger(getClass());
+
     @Autowired
     private Environment environment;
+
+    @RequestMapping(value = "/echo", method = RequestMethod.GET)
+    public String getEcho(String s) {
+        String out = "Received string: " + s;
+        logger.info(out);
+        return out;
+    }
 
     @RequestMapping(value = "/version", method = RequestMethod.GET)
     public VersionResponse getVersion() {
