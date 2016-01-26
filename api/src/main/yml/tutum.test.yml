@@ -7,3 +7,5 @@ server:
   target_num_containers: 2
   tags:
     - test
+  ports:
+    - '80:8080'
