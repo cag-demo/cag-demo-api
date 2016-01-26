@@ -4,4 +4,4 @@ MAINTAINER daniel.marell@cag.se
 ENV SE_CAGLABS_CODENIGHT_ENVIRONMENT local
 COPY target/codenight.jar /
 EXPOSE 8080
-CMD java  -jar /codenight.jar
+CMD java -jar /codenight.jar
