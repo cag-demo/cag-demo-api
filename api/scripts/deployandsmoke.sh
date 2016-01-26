@@ -20,5 +20,5 @@ docker rm -f cag-demo-api-${INSTANCE} || /bin/true
 echo running  docker run -d -e "PIPELINE_ENV=${PIPELINE_ENV}" --name cag-demo-api-${INSTANCE} -p ${PORT}:${PORT} cag-demo-api:$VERSION
 docker run -d -e "PIPELINE_ENV=${PIPELINE_ENV}" --name cag-demo-api-${INSTANCE} -p ${PORT}:${PORT} cag-demo-api:$VERSION
 # Sleep some time before checking that it's working
-timeout 3m bash runsmoketestuntilkilled.sh
+#timeout 3m bash runsmoketestuntilkilled.sh
 
