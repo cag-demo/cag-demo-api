@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 @RestController
 public class SystemController {
     @Autowired
@@ -22,5 +25,10 @@ public class SystemController {
     @RequestMapping(value = "/environment", method = RequestMethod.GET)
     public EnvironmentResponse getRunEnvironment() {
         return new EnvironmentResponse(RunEnvironment.getCurrentEnvironment(environment).toString());
+    }
+
+    @RequestMapping(value = "/hostname", method = RequestMethod.GET)
+    public HostnameResponse getHostname() throws UnknownHostException {
+        return new HostnameResponse(InetAddress.getLocalHost().getHostName());
     }
 }
