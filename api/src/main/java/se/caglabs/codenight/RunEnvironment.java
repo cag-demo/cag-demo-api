@@ -16,15 +16,15 @@ import org.springframework.core.env.Environment;
  * prod: Production environment
  */
 public enum RunEnvironment {
+    UNKNOWN("unknown"),
     LOCAL("local"),
-    AUTOSMALL("autosmall"),
-    AUTOLARGE("autolarge"),
+    TEST("test"),
     MAN("man"),
     PROD("prod");
 
     private String name;
 
-    private RunEnvironment(String name) {
+    RunEnvironment(String name) {
         this.name = name;
     }
 
@@ -44,7 +44,7 @@ public enum RunEnvironment {
                 return e;
             }
         }
-        return LOCAL;
+        return UNKNOWN;
     }
 
     @Override
