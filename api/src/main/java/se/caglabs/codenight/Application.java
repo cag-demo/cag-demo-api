@@ -18,7 +18,7 @@ public class Application {
 
     public static void main(String[] args) {
         SpringApplication app = new SpringApplication(Application.class);
-        String runEnv = System.getProperty("se.caglabs.codenight.environment");
+        String runEnv = System.getenv("SE_CAGLABS_CODENIGHT_ENVIRONMENT");
         if (runEnv == null) {
             runEnv = "local";
         }
