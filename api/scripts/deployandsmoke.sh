@@ -1,6 +1,6 @@
 #!/bin/bash
 # Deploy and run smoketest on app
-INSTANCE=${DOODLE_ENV}
+INSTANCE=${PIPELINE_ENV}
 PORT_PREFIX=$1
 PORT=8080
 
@@ -17,8 +17,8 @@ docker rm -f cag-demo-api-${INSTANCE} || /bin/true
 
 # Start a new one
 # Is depending on directory name running docker-compose up in!! Ugly!!
-echo running  docker run -d -e "DOODLE_ENV=${DOODLE_ENV}" --name cag-demo-api-${INSTANCE} -p ${PORT}:${PORT} cag-demo-api:$VERSION
-docker run -d -e "DOODLE_ENV=${DOODLE_ENV}" --name cag-demo-api-${INSTANCE} -p ${PORT}:${PORT} cag-demo-api:$VERSION
+echo running  docker run -d -e "PIPELINE_ENV=${PIPELINE_ENV}" --name cag-demo-api-${INSTANCE} -p ${PORT}:${PORT} cag-demo-api:$VERSION
+docker run -d -e "PIPELINE_ENV=${PIPELINE_ENV}" --name cag-demo-api-${INSTANCE} -p ${PORT}:${PORT} cag-demo-api:$VERSION
 # Sleep some time before checking that it's working
 timeout 3m bash runsmoketestuntilkilled.sh
 

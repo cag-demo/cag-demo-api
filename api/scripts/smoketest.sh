@@ -1,6 +1,6 @@
 #!/bin/bash
 
-INSTANCE=$DOODLE_ENV
+INSTANCE=$PIPELINE_ENV
 PORT=8080
 
 # Get the IPAdress of the docker instans

@@ -1,6 +1,6 @@
 #!/bin/bash
 set -ex
-INSTANCE=${DOODLE_ENV}
+INSTANCE=${PIPELINE_ENV}
 VERSION=${GO_PIPELINE_LABEL}
 PORT_PREFIX=$1
 GW=`route | grep default | awk '{print $2}'`

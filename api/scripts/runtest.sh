@@ -1,9 +1,8 @@
 #!/bin/bash
 # Deploy and run smoketest on app
-export INSTANCE=${DOODLE_ENV}
+export INSTANCE=${PIPELINE_ENV}
 export PORT_PREFIX=$1
 export PORT=8080
-export M_PORT=8080
 
 set -e
 echo "Running smoketests"
