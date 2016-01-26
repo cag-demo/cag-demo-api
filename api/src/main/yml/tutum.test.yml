@@ -4,8 +4,8 @@ server:
   environment:
     - SE_CAGLABS_CODENIGHT_ENVIRONMENT=test
   restart: always
-  target_num_containers: 2
+  target_num_containers: 1
   tags:
     - test
   ports:
-    - '80:8080'
+    - '8080:8080'
