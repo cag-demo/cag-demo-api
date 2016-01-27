@@ -39,7 +39,7 @@
     </dependencies>
 
     <build>
-        <finalName>codenight</finalName>
+        <finalName>${project.artifactId}</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -66,6 +66,35 @@
                 <version>2.7</version>
                 <executions>
                     <execution>
+                        <id>copy-resources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <encoding>UTF-8</encoding>
+                            <outputDirectory>target/go/docker</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>target</directory>
+                                    <includes>
+                                        <include>${project.artifactId}.jar</include>
+                                    </includes>
+                                </resource>
+                                <resource>
+                                    <directory>src/main/docker</directory>
+                                    <filtering>false</filtering>
+                                    <include>**/*</include>
+                                </resource>
+                                <resource>
+                                    <directory>src/main/docker</directory>
+                                    <filtering>true</filtering>
+                                    <include>Dockerfile</include>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
                         <id>copy-tutum-resources</id>
                         <phase>process-test-resources</phase>
                         <goals>
@@ -73,7 +102,7 @@
                         </goals>
                         <configuration>
                             <encoding>UTF-8</encoding>
-                            <outputDirectory>${project.basedir}/go</outputDirectory>
+                            <outputDirectory>${project.basedir}/target/go/tutum</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>src/main/yml</directory>
