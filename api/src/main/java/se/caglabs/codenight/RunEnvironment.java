@@ -19,7 +19,7 @@ public enum RunEnvironment {
     UNKNOWN("unknown"),
     LOCAL("local"),
     TEST("test"),
-    MAN("man"),
+    UAT("uat"),
     PROD("prod");
 
     private String name;
