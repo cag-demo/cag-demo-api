@@ -1,12 +1,13 @@
 #!/bin/bash
-# Deploy and run smoketest on app
+
+# Run tests on application.
+# All script files *.sh in the directory tests are run.
+
 export INSTANCE=${PIPELINE_ENV}
 export PORT_PREFIX=$1
 export PORT=8080
 
 set -e
-echo "Running smoketests"
-#bash smoketest.sh >/dev/null 2>&1
 
 for f in ../tests/${INSTANCE}/*.sh
 do
