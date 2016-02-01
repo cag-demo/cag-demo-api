@@ -1,6 +1,3 @@
 #!/bin/bash
+echo "Running sample.sh in environment prod"
 
-echo "Sample small test script with this env:"
-env
-echo "--- END ---"
-exit 0
