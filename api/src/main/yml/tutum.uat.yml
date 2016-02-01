@@ -4,7 +4,7 @@ server:
   environment:
     - SE_CAGLABS_CODENIGHT_ENVIRONMENT=uat
   restart: always
-  target_num_containers: 2
+  target_num_containers: 1
   tags:
     - uat
   ports:
