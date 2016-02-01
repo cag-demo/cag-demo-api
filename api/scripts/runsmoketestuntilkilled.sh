@@ -8,7 +8,7 @@
 
 while `/bin/true`
 do
-    echo try to run smoketest.sh
+    echo Running smoketest.sh...
     bash smoketest.sh # >/dev/null 2>&1
     if [ $? -eq 0 ]; then break; fi
     sleep 3
