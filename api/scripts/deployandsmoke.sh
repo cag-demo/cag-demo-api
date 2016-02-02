@@ -24,7 +24,7 @@ set -e
 # New version
 # http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in
 SCRIPT_DIR=$(dirname $(readlink -f $0))
-VERSION=`grep AppVersion ${SCRIPT_DIR}/target/classes/BuildInfo.properties | awk -F'=' '{print $2}'`
+VERSION=`grep AppVersion ${SCRIPT_DIR}/../target/classes/BuildInfo.properties | awk -F'=' '{print $2}'`
 
 # Kill old instances
 docker rm -f cag-demo-api-${INSTANCE} || /bin/true
