@@ -32,7 +32,7 @@ docker rm -f cag-demo-api-${INSTANCE} || /bin/true
 # Start a new instance
 docker run -d -e "PIPELINE_ENV=${PIPELINE_ENV}" \
     --name cag-demo-api-${INSTANCE} \
-    -p ${PORT}:${PORT} \
+    -p ${PORT_PREFIX}${PORT}:${PORT} \
     cag-demo-api:$VERSION
 
 # Run smoke test

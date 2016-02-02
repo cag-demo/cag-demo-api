@@ -13,7 +13,7 @@ set -e
 
 # Get ip address of the docker instance
 CONTAINER_IP=`docker inspect cag-demo-api-${INSTANCE} | grep \"IPAddress\" | awk -F'\"' '{print $4}' | head -n 1`
-API_BASE_URL=http://${CONTAINER_IP}:${PORT}
+API_BASE_URL=http://${CONTAINER_IP}:${PORT_PREFIX}${PORT}
 
 for f in ../tests/${INSTANCE}/*.sh
 do
