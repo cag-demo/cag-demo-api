@@ -17,7 +17,7 @@ API_BASE_URL=http://${CONTAINER_IP}:${PORT}
 
 for f in ../tests/${INSTANCE}/*.sh
 do
-    echo Processing $f file using API_BASE_URL=${API_BASE_URL} ...
+    echo Processing $f file with INSTANCE=${INSTANCE}, PORT_PREFIX=${PORT_PREFIX}, API_BASE_URL=${API_BASE_URL} ...
     bash $f ${API_BASE_URL}
     echo Done with $f
 done

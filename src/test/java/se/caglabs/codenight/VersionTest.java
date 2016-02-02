@@ -19,7 +19,7 @@ import static org.junit.Assert.assertEquals;
 @WebIntegrationTest
 public class VersionTest {
     @Test
-    public void shouldGetEcho() throws Exception {
+    public void shouldGetVersion() throws Exception {
         RestTemplate template = new RestTemplate();
 
         ResponseEntity<VersionResponse> entity = template.getForEntity(
