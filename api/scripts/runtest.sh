@@ -1,7 +1,9 @@
 #!/bin/bash
 
+#
 # Run tests on application.
-# All script files *.sh in the directory tests are run.
+# All script files matching *.sh in the directory "tests" are run.
+#
 
 export INSTANCE=${PIPELINE_ENV}
 export PORT_PREFIX=$1

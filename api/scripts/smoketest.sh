@@ -1,7 +1,8 @@
 #!/bin/bash
 
 #
-# Run smoke test.
+# Run smoke test: Call REST endpoint GET /version and verify that the response string
+# contains the text "version".
 #
 
 INSTANCE=$PIPELINE_ENV

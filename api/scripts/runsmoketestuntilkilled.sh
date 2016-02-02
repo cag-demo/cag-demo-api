@@ -3,7 +3,7 @@
 #
 # Run smoke test.
 # The application may take some time to start, retry tests forever until succeeded.
-# Caller of this script is responsible for timing handling.
+# Caller of this script is responsible for handle timout and stop this script from hanging forever.
 #
 
 while `/bin/true`
