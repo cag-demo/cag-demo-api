@@ -35,5 +35,9 @@ docker run -d -e "PIPELINE_ENV=${PIPELINE_ENV}" \
     -p ${PORT_PREFIX}${PORT}:${PORT} \
     cag-demo-api:$VERSION
 
+# Set API_BASE_URL from IP address of the docker instance
+CONTAINER_IP=`docker inspect cag-demo-api-${INSTANCE} | grep \"IPAddress\" | awk -F'\"' '{print $4}' | head -n 1`
+export API_BASE_URL=http://${CONTAINER_IP}:8080
+
 # Run smoke test
 timeout 3m bash runsmoketestuntilkilled.sh
