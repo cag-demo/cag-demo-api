@@ -23,9 +23,13 @@ public class ApplicationController {
     private Environment environment;
 
     @RequestMapping(value = "/echo", method = RequestMethod.GET)
-    public String getEcho(@RequestParam(value = "message") String message) {
+    public String getEcho(@RequestParam(value = "message", required = false) String message) {
+        logger.info("echo request: message: {}", message);
+        if (message == null) {
+            message = "";
+        }
         String out = message;
-        logger.info(out);
+        logger.info("echo response: " + out);
         return out;
     }
 
@@ -42,5 +46,35 @@ public class ApplicationController {
     @RequestMapping(value = "/hostname", method = RequestMethod.GET)
     public HostnameResponse getHostname() throws UnknownHostException {
         return new HostnameResponse(InetAddress.getLocalHost().getHostName());
+    }
+
+
+
+
+
+
+
+
+
+    @RequestMapping(value = "/echo2", method = RequestMethod.GET)
+    public String getEcho(@RequestParam(value = "message", required = false) String message,
+                          @RequestParam(value = "conversion", required = false) String conversion) {
+        logger.info("echo request: message: {}, conversion={}", message, conversion);
+        if (message == null) {
+            message = "";
+        }
+        String out = convert(message, conversion);
+        logger.info("echo response: " + out);
+        return out;
+    }
+
+    private String convert(String message, String conversion) {
+        if (conversion == null) {
+            return message;
+        }
+        if (conversion.equalsIgnoreCase("uppercase")) {
+            return message.toUpperCase();
+        }
+        return message;
     }
 }

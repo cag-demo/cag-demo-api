@@ -1,23 +1,14 @@
 #!/bin/bash
-
 #
 # Test REST endpoint GET /echo
 #
-
-RESPONSE=`curl -s -f ${API_BASE_URL}/echo?message=Hello+world`
+RESPONSE=`curl -s -f -G ${API_BASE_URL}/echo -d message=Hello+world`
 if [ "$RESPONSE" != "Hello world" ]
 then
-    echo "Test fail"
+    echo "fail"
     exit 1
 else
-    echo "Test ok"
+    echo "ok"
 fi
 
-# Compact test:
-# if ! `curl -s -f ${API_BASE_URL}/echo?message=Hello+world | grep 'Hello world' >/dev/null`
-#
-# Compare exact string:
-# if [ "$RESPONSE" != "Hello world" ]
-#
-# Compare string contains:
-# if [[ $RESPONSE != *"world"* ]]
+# -d conversion=upperCase

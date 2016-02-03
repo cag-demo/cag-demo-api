@@ -1,5 +1,4 @@
 #!/bin/bash
-
 #
 # Deploy app and verify that the deployment works by running a smoke test.
 # This script is called by the pipeline in all environments.
@@ -15,7 +14,6 @@
 # enables deploying different versions of the app configured for different environments
 # on the same host.
 #
-
 INSTANCE=${PIPELINE_ENV}
 PORT_PREFIX=$1
 PORT=8080
