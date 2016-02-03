@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.net.InetAddress;
@@ -22,8 +23,8 @@ public class ApplicationController {
     private Environment environment;
 
     @RequestMapping(value = "/echo", method = RequestMethod.GET)
-    public String getEcho(String s) {
-        String out = "Received string: " + s;
+    public String getEcho(@RequestParam(value = "message") String message) {
+        String out = message;
         logger.info(out);
         return out;
     }
