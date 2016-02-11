@@ -18,7 +18,7 @@ public class HostnameResponse {
         this.hostname = environment;
     }
 
-    public String getVersion() {
+    public String getHostname() {
         return hostname;
     }
 }
