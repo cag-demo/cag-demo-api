@@ -23,7 +23,8 @@ public class ApplicationController {
     private Environment environment;
 
     @RequestMapping(value = "/echo", method = RequestMethod.GET)
-    public String getEcho(@RequestParam(value = "message", required = false) String message) {
+    public String getEcho(
+            @RequestParam(value = "message", required = false) String message) {
         logger.info("echo request: message: {}", message);
         if (message == null) {
             message = "";
@@ -40,26 +41,23 @@ public class ApplicationController {
 
     @RequestMapping(value = "/environment", method = RequestMethod.GET)
     public EnvironmentResponse getRunEnvironment() {
-        return new EnvironmentResponse(RunEnvironment.getCurrentEnvironment(environment).toString());
+        return new EnvironmentResponse(
+                RunEnvironment.getCurrentEnvironment(environment).toString());
     }
 
     @RequestMapping(value = "/hostname", method = RequestMethod.GET)
     public HostnameResponse getHostname() throws UnknownHostException {
-        return new HostnameResponse(InetAddress.getLocalHost().getHostName());
+        return new HostnameResponse(
+                InetAddress.getLocalHost().getHostName());
     }
 
 
-
-
-
-
-
-
-
     @RequestMapping(value = "/echo2", method = RequestMethod.GET)
-    public String getEcho(@RequestParam(value = "message", required = false) String message,
-                          @RequestParam(value = "conversion", required = false) String conversion) {
-        logger.info("echo request: message: {}, conversion={}", message, conversion);
+    public String getEcho(
+            @RequestParam(value = "message", required = false) String message,
+            @RequestParam(value = "conversion", required = false) String conversion) {
+        logger.info("echo request: message: {}, conversion={}",
+                message, conversion);
         if (message == null) {
             message = "";
         }
