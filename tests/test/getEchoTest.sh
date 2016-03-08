@@ -3,9 +3,9 @@
 # Test REST endpoint GET /echo
 #
 RESPONSE=`\
-  curl -s -f -G ${API_BASE_URL}/echo -d message=Hello+world -d conversion=upperCase\
+  curl -s -f -G ${API_BASE_URL}/echo -d message=Hello+world\
   `
-if [ "$RESPONSE" != "HELLO WORLD" ]
+if [ "$RESPONSE" != "Hello world" ]
 then
     echo "fail"
     exit 1

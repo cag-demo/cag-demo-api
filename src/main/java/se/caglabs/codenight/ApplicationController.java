@@ -22,7 +22,7 @@ public class ApplicationController {
     @Autowired
     private Environment environment;
 
-    @RequestMapping(value = "/echoold", method = RequestMethod.GET)
+    @RequestMapping(value = "/echo", method = RequestMethod.GET)
     public String getEcho(
             @RequestParam(value = "message", required = false) String message) {
         logger.info("echo request: message: {}", message);
@@ -52,8 +52,8 @@ public class ApplicationController {
     }
 
 
-    @RequestMapping(value = "/echo", method = RequestMethod.GET)
-    public String getEcho(
+    @RequestMapping(value = "/echo2", method = RequestMethod.GET)
+    public String getEcho2(
             @RequestParam(value = "message", required = false) String message,
             @RequestParam(value = "conversion", required = false) String conversion) {
         logger.info("echo request: message: {}, conversion={}",
