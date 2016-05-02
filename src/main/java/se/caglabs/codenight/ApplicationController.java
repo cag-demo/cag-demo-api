@@ -50,29 +50,4 @@ public class ApplicationController {
         return new HostnameResponse(
                 InetAddress.getLocalHost().getHostName());
     }
-
-
-    @RequestMapping(value = "/echo2", method = RequestMethod.GET)
-    public String getEcho2(
-            @RequestParam(value = "message", required = false) String message,
-            @RequestParam(value = "conversion", required = false) String conversion) {
-        logger.info("echo request: message: {}, conversion={}",
-                message, conversion);
-        if (message == null) {
-            message = "";
-        }
-        String out = convert(message, conversion);
-        logger.info("echo response: " + out);
-        return out;
-    }
-
-    private String convert(String message, String conversion) {
-        if (conversion == null) {
-            return message;
-        }
-        if (conversion.equalsIgnoreCase("uppercase")) {
-            return message.toUpperCase();
-        }
-        return message;
-    }
 }
